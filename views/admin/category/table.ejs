@@ -1,0 +1,33 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Nama</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i < category.length; i++) { %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><%= category[i].name %></td>
+      <td>
+        <form
+          action="/category/delete/<%= category[i]._id %>?_method=DELETE"
+          method="POST"
+        >
+          <a
+            class="btn btn-warning"
+            href="/category/edit/<%= category[i]._id %>"
+          >
+            <i class="fa fa-pencil-alt"> Ubah </i>
+          </a>
+          <button class="btn btn-danger">
+            <i class="fa fa-trash">Hapus</i>
+          </button>
+        </form>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
